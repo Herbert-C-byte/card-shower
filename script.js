@@ -18,3 +18,4 @@ button.addEventListener("click", function() {
 })
 
 console.log(randomIndex, messages[randomIndex]);
+console.log("Script carregado com sucesso!");
