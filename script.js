@@ -3,6 +3,12 @@ const messages = [
   "Hello World!",
   "Bonjour le monde!",
   "Hola Mundo!",
+  "Ciao mondo!",
+  "Hallo Welt!",
+  "こんにちは世界！",
+  "안녕하세요 세계!",
+  "Привет, мир!",
+  "مرحبا بالعالم!"
 ]
 
 const button = document.querySelector("#changeButton");
