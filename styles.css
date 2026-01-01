@@ -14,10 +14,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 250px;
+  width: 180px;
+  height: 260px;
   margin: 10px;
   border: 2px solid black;
   border-radius: 8px;
-  background-color: red;
+  background-color: yellow;
 }
