@@ -3,13 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Multilingual greeting cards showcasing 'Hello World' in 10 different languages">
+  <meta name="theme-color" content="#6366f1">
   <link rel="stylesheet" href="styles.css">
-  <title>My website</title>
+  <title>Cards Shower - Multilingual Greetings</title>
 </head>
 <body>
-  <div class="card"></div>
-  <button id="changeButton" type="button">placeholder</button>
+  <main>
+    <div class="container">
+      <header>
+        <h1>Cards Shower</h1>
+        <p class="subtitle">Discover "Hello World" in different languages</p>
+      </header>
 
-<script src="script.js"></script>
+      <div class="card-wrapper">
+        <div class="card" aria-live="polite" role="region">
+          <span class="message">Loading...</span>
+        </div>
+        <div class="counter">
+          <span id="messageCount">0</span> / <span id="totalMessages">10</span>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button id="changeButton" type="button" class="btn-primary">Next Message</button>
+        <button id="randomButton" type="button" class="btn-secondary">Random</button>
+      </div>
+
+      <footer>
+        <p class="hint">Press <kbd>Space</kbd> or <kbd>Enter</kbd> to change message • <kbd>R</kbd> for random</p>
+      </footer>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -12,36 +12,66 @@ document.addEventListener('DOMContentLoaded', () => {
     'مرحبا بالعالم!'
   ];
 
-  const button = document.querySelector('#changeButton');
+  const changeButton = document.querySelector('#changeButton');
+  const randomButton = document.querySelector('#randomButton');
   const card = document.querySelector('.card');
+  const messageSpan = card?.querySelector('.message');
+  const messageCountSpan = document.querySelector('#messageCount');
+  const totalMessagesSpan = document.querySelector('#totalMessages');
 
-  if (!button || !card) {
-    console.warn('Missing #changeButton or .card element; aborting script.');
+  if (!changeButton || !randomButton || !card || !messageSpan) {
+    console.error('Required elements not found; aborting script.');
     return;
   }
 
-  // Improve accessibility: announce changes and mark region
-  card.setAttribute('role', 'region');
-  card.setAttribute('aria-live', 'polite');
+  // Initialize total messages
+  totalMessagesSpan.textContent = messages.length;
+
+  let currentIndex = -1;
+  let messageCount = 0;
 
   function isRTL(text) {
     return /[\u0591-\u07FF\uFB1D-\uFDFD\uFE70-\uFEFC]/.test(text);
   }
 
-  function setRandomMessage() {
-    const randomIndex = Math.floor(Math.random() * messages.length);
-    const message = messages[randomIndex];
-    card.textContent = message;
+  function setMessage(index) {
+    const message = messages[index];
+    messageSpan.textContent = message;
     card.dir = isRTL(message) ? 'rtl' : 'ltr';
-    console.log('Message index:', randomIndex, 'message:', message);
+    card.classList.remove('message-enter');
+    
+    // Trigger animation
+    void card.offsetWidth;
+    card.classList.add('message-enter');
+    
+    messageCount++;
+    messageCountSpan.textContent = messageCount;
+    
+    console.log('Message index:', index, 'message:', message);
   }
 
-  // Click to change message
-  button.addEventListener('click', setRandomMessage);
+  function setNextMessage() {
+    currentIndex = (currentIndex + 1) % messages.length;
+    setMessage(currentIndex);
+  }
 
-  // Support keyboard activation for non-button controls
-  button.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+  function setRandomMessage() {
+    currentIndex = Math.floor(Math.random() * messages.length);
+    setMessage(currentIndex);
+  }
+
+  // Event listeners
+  changeButton.addEventListener('click', setNextMessage);
+  randomButton.addEventListener('click', setRandomMessage);
+
+  // Keyboard support
+  document.addEventListener('keydown', (e) => {
+    if (e.key === ' ' || e.key === 'Enter') {
+      if (e.target === changeButton || e.target === randomButton) return;
+      e.preventDefault();
+      setNextMessage();
+    } else if (e.key.toLowerCase() === 'r') {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
       e.preventDefault();
       setRandomMessage();
     }
@@ -49,5 +79,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize with a random message
   setRandomMessage();
-  console.log('Script carregado com sucesso!');
+  console.log('Cards Shower loaded successfully!');
 });
