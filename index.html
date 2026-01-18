@@ -17,12 +17,19 @@
       </header>
 
       <div class="card-wrapper">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
         <div class="card" aria-live="polite" role="region">
           <span class="message">Loading...</span>
         </div>
-        <div class="language-info" id="languageInfo">Portuguese</div>
+        <div class="card-info">
+          <div class="language-info" id="languageInfo">Portuguese</div>
+          <button id="favoriteButton" type="button" class="btn-heart" title="Add to favorites">🤍</button>
+        </div>
         <div class="counter">
           <span id="messageCount">0</span> / <span id="totalMessages">10</span>
+          <span class="favorites-count">❤️ <span id="favoritesCount">0</span></span>
         </div>
       </div>
 
@@ -31,10 +38,37 @@
         <button id="randomButton" type="button" class="btn-secondary">Random</button>
         <button id="copyButton" type="button" class="btn-tertiary" title="Copy message">📋 Copy</button>
         <button id="soundToggle" type="button" class="btn-tertiary" title="Toggle sound">🔊 Sound</button>
+        <button id="statsButton" type="button" class="btn-tertiary" title="View statistics">📊 Stats</button>
+      </div>
+
+      <div id="statsModal" class="modal">
+        <div class="modal-content">
+          <button id="closeStats" class="btn-close">✕</button>
+          <h2>Statistics</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">Total Viewed</span>
+              <span class="stat-value" id="statTotal">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Favorites</span>
+              <span class="stat-value" id="statFavorites">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Languages Seen</span>
+              <span class="stat-value" id="statLanguages">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Current Streak</span>
+              <span class="stat-value" id="statStreak">0</span>
+            </div>
+          </div>
+          <div id="favoritesList" class="favorites-list"></div>
+        </div>
       </div>
 
       <footer>
-        <p class="hint">Press <kbd>Space</kbd> or <kbd>Enter</kbd> to change message • <kbd>R</kbd> for random</p>
+        <p class="hint"><kbd>Space</kbd>/<kbd>↵</kbd> Next • <kbd>R</kbd> Random • <kbd>C</kbd> Copy • <kbd>♥</kbd> Favorite • <kbd>S</kbd> Stats</p>
       </footer>
     </div>
   </main>
