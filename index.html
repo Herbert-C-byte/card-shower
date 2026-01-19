@@ -36,8 +36,10 @@
       <div class="button-group">
         <button id="changeButton" type="button" class="btn-primary">Next Message</button>
         <button id="randomButton" type="button" class="btn-secondary">Random</button>
+        <button id="speakButton" type="button" class="btn-tertiary" title="Pronounce message">🔊 Speak</button>
         <button id="copyButton" type="button" class="btn-tertiary" title="Copy message">📋 Copy</button>
-        <button id="soundToggle" type="button" class="btn-tertiary" title="Toggle sound">🔊 Sound</button>
+        <button id="soundToggle" type="button" class="btn-tertiary" title="Toggle sound">🎵 Sound</button>
+        <button id="shuffleButton" type="button" class="btn-tertiary" title="Shuffle through all">🎲 Shuffle</button>
         <button id="statsButton" type="button" class="btn-tertiary" title="View statistics">📊 Stats</button>
       </div>
 
@@ -64,11 +66,12 @@
             </div>
           </div>
           <div id="favoritesList" class="favorites-list"></div>
+          <button id="resetStats" class="btn-reset">🔄 Reset All</button>
         </div>
       </div>
 
       <footer>
-        <p class="hint"><kbd>Space</kbd>/<kbd>↵</kbd> Next • <kbd>R</kbd> Random • <kbd>C</kbd> Copy • <kbd>♥</kbd> Favorite • <kbd>S</kbd> Stats</p>
+        <p class="hint"><kbd>Space</kbd>/<kbd>↵</kbd> Next • <kbd>R</kbd> Random • <kbd>T</kbd> Speak • <kbd>C</kbd> Copy • <kbd>♥</kbd> Favorite • <kbd>H</kbd> Shuffle • <kbd>S</kbd> Stats</p>
       </footer>
     </div>
   </main>

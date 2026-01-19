@@ -15,11 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // DOM Elements
   const changeButton = document.querySelector('#changeButton');
   const randomButton = document.querySelector('#randomButton');
+  const speakButton = document.querySelector('#speakButton');
   const copyButton = document.querySelector('#copyButton');
   const soundToggle = document.querySelector('#soundToggle');
+  const shuffleButton = document.querySelector('#shuffleButton');
   const favoriteButton = document.querySelector('#favoriteButton');
   const statsButton = document.querySelector('#statsButton');
   const closeStatsBtn = document.querySelector('#closeStats');
+  const resetStatsBtn = document.querySelector('#resetStats');
   const card = document.querySelector('.card');
   const messageSpan = card?.querySelector('.message');
   const messageCountSpan = document.querySelector('#messageCount');
@@ -38,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   totalMessagesSpan.textContent = messages.length;
 
   let currentIndex = -1;
+  let isShuffle = false;
   let messageCount = 0;
   let soundEnabled = true;
   let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
@@ -124,6 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
     languagesSeen.add(messageObj.lang);
     updateProgressBar();
     
+    // Milestone celebrations
+    if (messageCount % 10 === 0) {
+      celebrateMilestone();
+    }
+    
     // Update favorite button
     if (isFavorited()) {
       favoriteButton.textContent = '❤️';
@@ -134,6 +143,60 @@ document.addEventListener('DOMContentLoaded', () => {
     
     playSound();
     console.log('Message index:', index, 'language:', messageObj.lang, 'message:', message);
+  }
+
+  function celebrateMilestone() {
+    card.classList.add('milestone-celebration');
+    setTimeout(() => card.classList.remove('milestone-celebration'), 500);
+    playSound();
+  }
+
+  function speakMessage() {
+    if (!messageSpan.textContent || currentIndex < 0) return;
+    
+    const text = messages[currentIndex].text;
+    const lang = messages[currentIndex].lang;
+    
+    // Map language to speech language code
+    const langMap = {
+      'Portuguese': 'pt-BR',
+      'English': 'en-US',
+      'French': 'fr-FR',
+      'Spanish': 'es-ES',
+      'Italian': 'it-IT',
+      'German': 'de-DE',
+      'Japanese': 'ja-JP',
+      'Korean': 'ko-KR',
+      'Russian': 'ru-RU',
+      'Arabic': 'ar-SA'
+    };
+    
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = langMap[lang] || 'en-US';
+    utterance.rate = 0.9;
+    speechSynthesis.speak(utterance);
+  }
+
+  function shuffleAllMessages() {
+    if (isShuffle) return;
+    
+    isShuffle = true;
+    shuffleButton.disabled = true;
+    shuffleButton.textContent = '⏳ Shuffling...';
+    
+    let count = 0;
+    const interval = setInterval(() => {
+      if (count >= 15) {
+        clearInterval(interval);
+        isShuffle = false;
+        shuffleButton.disabled = false;
+        shuffleButton.textContent = '🎲 Shuffle';
+        setRandomMessage();
+        return;
+      }
+      setRandomMessage();
+      count++;
+    }, 100);
   }
 
   function setNextMessage() {
@@ -204,14 +267,32 @@ document.addEventListener('DOMContentLoaded', () => {
     statsModal.classList.remove('active');
   }
 
+  function resetAllStats() {
+    if (confirm('Are you sure you want to reset all statistics and favorites? This cannot be undone.')) {
+      messageCount = 0;
+      favorites = [];
+      languagesSeen.clear();
+      messageCountSpan.textContent = '0';
+      updateFavoritesCount();
+      updateProgressBar();
+      progressFill.style.width = '0%';
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      hideStats();
+      console.log('All stats reset!');
+    }
+  }
+
   // Event listeners
   changeButton.addEventListener('click', setNextMessage);
   randomButton.addEventListener('click', setRandomMessage);
+  speakButton.addEventListener('click', speakMessage);
   copyButton.addEventListener('click', copyToClipboard);
   soundToggle.addEventListener('click', toggleSound);
+  shuffleButton.addEventListener('click', shuffleAllMessages);
   favoriteButton.addEventListener('click', toggleFavorite);
   statsButton.addEventListener('click', showStats);
   closeStatsBtn.addEventListener('click', hideStats);
+  resetStatsBtn.addEventListener('click', resetAllStats);
 
   // Close modal when clicking outside
   statsModal.addEventListener('click', (e) => {
@@ -229,12 +310,18 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (e.key.toLowerCase() === 'r') {
       e.preventDefault();
       setRandomMessage();
+    } else if (e.key.toLowerCase() === 't') {
+      e.preventDefault();
+      speakMessage();
     } else if (e.key.toLowerCase() === 'c') {
       e.preventDefault();
       copyToClipboard();
     } else if (e.key.toLowerCase() === 'f' || e.key === '♥') {
       e.preventDefault();
       toggleFavorite();
+    } else if (e.key.toLowerCase() === 'h') {
+      e.preventDefault();
+      shuffleAllMessages();
     } else if (e.key.toLowerCase() === 's') {
       e.preventDefault();
       showStats();
