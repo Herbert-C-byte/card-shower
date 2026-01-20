@@ -9,7 +9,32 @@ document.addEventListener('DOMContentLoaded', () => {
     { text: 'こんにちは世界！', lang: 'Japanese' },
     { text: '안녕하세요 세계!', lang: 'Korean' },
     { text: 'Привет, мир!', lang: 'Russian' },
-    { text: 'مرحبا بالعالم!', lang: 'Arabic' }
+    { text: 'مرحبا بالعالم!', lang: 'Arabic' },
+    { text: '你好世界!', lang: 'Chinese (Mandarin)' },
+    { text: 'สวัสดีชาวโลก!', lang: 'Thai' },
+    { text: 'Xin chào thế giới!', lang: 'Vietnamese' },
+    { text: 'Halo Dunia!', lang: 'Indonesian' },
+    { text: 'Merhaba Dünya!', lang: 'Turkish' },
+    { text: 'Γεια σας κόσμε!', lang: 'Greek' },
+    { text: 'Cześć świecie!', lang: 'Polish' },
+    { text: 'Ahoj světe!', lang: 'Czech' },
+    { text: 'Hej världen!', lang: 'Swedish' },
+    { text: 'Hallo Wereld!', lang: 'Dutch' },
+    { text: 'Terve maailma!', lang: 'Finnish' },
+    { text: 'Hei verden!', lang: 'Norwegian' },
+    { text: 'Hej verden!', lang: 'Danish' },
+    { text: 'שלום עולם!', lang: 'Hebrew' },
+    { text: 'नमस्ते दुनिया!', lang: 'Hindi' },
+    { text: 'হ্যালো বিশ্ব!', lang: 'Bengali' },
+    { text: 'مرحبا دنیا!', lang: 'Urdu' },
+    { text: 'Habagat sa mundo!', lang: 'Filipino' },
+    { text: 'Halo Dunia!', lang: 'Malay' },
+    { text: 'Kamusta mundo!', lang: 'Tagalog' },
+    { text: 'Salam dunia!', lang: 'Swahili' },
+    { text: 'Halló heimur!', lang: 'Icelandic' },
+    { text: 'Helló világ!', lang: 'Hungarian' },
+    { text: 'Salut lume!', lang: 'Romanian' },
+    { text: 'Привет世界!', lang: 'Bulgarian' }
   ];
 
   // DOM Elements
@@ -19,16 +44,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyButton = document.querySelector('#copyButton');
   const soundToggle = document.querySelector('#soundToggle');
   const shuffleButton = document.querySelector('#shuffleButton');
+  const quizButton = document.querySelector('#quizButton');
   const favoriteButton = document.querySelector('#favoriteButton');
   const statsButton = document.querySelector('#statsButton');
   const closeStatsBtn = document.querySelector('#closeStats');
   const resetStatsBtn = document.querySelector('#resetStats');
+  const exportButton = document.querySelector('#exportButton');
+  const quizModal = document.querySelector('#quizModal');
+  const closeQuizBtn = document.querySelector('#closeQuiz');
+  const quizHintBtn = document.querySelector('#quizHint');
   const card = document.querySelector('.card');
   const messageSpan = card?.querySelector('.message');
   const messageCountSpan = document.querySelector('#messageCount');
   const totalMessagesSpan = document.querySelector('#totalMessages');
   const languageInfo = document.querySelector('#languageInfo');
   const favoritesCountSpan = document.querySelector('#favoritesCount');
+  const streakDisplay = document.querySelector('#streakDisplay');
   const progressFill = document.querySelector('#progressFill');
   const statsModal = document.querySelector('#statsModal');
 
@@ -42,20 +73,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentIndex = -1;
   let isShuffle = false;
+  let isQuizMode = false;
   let messageCount = 0;
   let soundEnabled = true;
   let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+  let achievements = JSON.parse(localStorage.getItem('achievements') || '[]');
   const languagesSeen = new Set();
+  let currentStreak = 0;
+  let quizCorrect = 0;
 
   // Update favorites display
   function updateFavoritesCount() {
     favoritesCountSpan.textContent = favorites.length;
   }
 
+  // Update streak display
+  function updateStreakDisplay() {
+    currentStreak = messageCount > 0 ? messageCount : 0;
+    streakDisplay.textContent = currentStreak > 0 ? '🔥 ' + currentStreak : '🔥 0';
+  }
+
+  // Check achievements
+  function checkAchievements() {
+    const newAchievements = [];
+    
+    if (messageCount === 10 && !achievements.includes('10')) {
+      newAchievements.push('10');
+      playSuccessSound();
+    }
+    if (messageCount === 50 && !achievements.includes('50')) {
+      newAchievements.push('50');
+      playSuccessSound();
+    }
+    if (messageCount === 100 && !achievements.includes('100')) {
+      newAchievements.push('100');
+      playSuccessSound();
+    }
+    if (favorites.length === 5 && !achievements.includes('collector')) {
+      newAchievements.push('collector');
+      playSuccessSound();
+    }
+    if (languagesSeen.size === messages.length && !achievements.includes('polyglot')) {
+      newAchievements.push('polyglot');
+      playSuccessSound();
+    }
+    
+    if (newAchievements.length > 0) {
+      achievements.push(...newAchievements);
+      localStorage.setItem('achievements', JSON.stringify(achievements));
+    }
+  }
+
   // Update progress bar
   function updateProgressBar() {
     const progress = (messageCount / messages.length) * 100;
     progressFill.style.width = progress + '%';
+    updateStreakDisplay();
+    checkAchievements();
   }
 
   // Check if current message is favorited
@@ -106,6 +180,32 @@ document.addEventListener('DOMContentLoaded', () => {
       
       oscillator.start(audioContext.currentTime);
       oscillator.stop(audioContext.currentTime + 0.1);
+    } catch (e) {
+      console.log('Audio not available');
+    }
+  }
+
+  function playSuccessSound() {
+    if (!soundEnabled) return;
+    try {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const now = audioContext.currentTime;
+      
+      // Play two tones for success
+      for (let i = 0; i < 2; i++) {
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+        
+        oscillator.frequency.value = 1000 + (i * 200);
+        gain.gain.setValueAtTime(0.2, now + (i * 0.1));
+        gain.gain.exponentialRampToValueAtTime(0.01, now + (i * 0.1) + 0.15);
+        
+        oscillator.start(now + (i * 0.1));
+        oscillator.stop(now + (i * 0.1) + 0.15);
+      }
     } catch (e) {
       console.log('Audio not available');
     }
@@ -260,6 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
     
+    renderAchievements();
     statsModal.classList.add('active');
   }
 
@@ -271,15 +372,130 @@ document.addEventListener('DOMContentLoaded', () => {
     if (confirm('Are you sure you want to reset all statistics and favorites? This cannot be undone.')) {
       messageCount = 0;
       favorites = [];
+      achievements = [];
       languagesSeen.clear();
+      quizCorrect = 0;
       messageCountSpan.textContent = '0';
       updateFavoritesCount();
       updateProgressBar();
       progressFill.style.width = '0%';
       localStorage.setItem('favorites', JSON.stringify(favorites));
+      localStorage.setItem('achievements', JSON.stringify(achievements));
       hideStats();
       console.log('All stats reset!');
     }
+  }
+
+  function startQuiz() {
+    isQuizMode = true;
+    setRandomMessage();
+    showQuiz();
+  }
+
+  function showQuiz() {
+    if (currentIndex < 0) return;
+    
+    const correctLang = messages[currentIndex].lang;
+    const options = [];
+    options.push(correctLang);
+    
+    // Add 3 random different languages
+    while (options.length < 4) {
+      const randomLang = messages[Math.floor(Math.random() * messages.length)].lang;
+      if (!options.includes(randomLang)) {
+        options.push(randomLang);
+      }
+    }
+    
+    // Shuffle options
+    options.sort(() => Math.random() - 0.5);
+    
+    const quizMessage = document.querySelector('#quizMessage');
+    const quizOptions = document.querySelector('#quizOptions');
+    
+    quizMessage.textContent = messages[currentIndex].text;
+    quizOptions.innerHTML = '';
+    
+    options.forEach(option => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-option';
+      btn.textContent = option;
+      btn.addEventListener('click', () => checkQuizAnswer(option, correctLang, btn));
+      quizOptions.appendChild(btn);
+    });
+    
+    quizModal.classList.add('active');
+  }
+
+  function checkQuizAnswer(selected, correct, btn) {
+    const allOptions = document.querySelectorAll('.quiz-option');
+    allOptions.forEach(opt => opt.disabled = true);
+    
+    if (selected === correct) {
+      btn.classList.add('correct');
+      quizCorrect++;
+      playSuccessSound();
+    } else {
+      btn.classList.add('incorrect');
+      allOptions.forEach(opt => {
+        if (opt.textContent === correct) opt.classList.add('correct');
+      });
+    }
+    
+    setTimeout(() => {
+      hideQuiz();
+      setNextMessage();
+    }, 1500);
+  }
+
+  function hideQuiz() {
+    isQuizMode = false;
+    quizModal.classList.remove('active');
+  }
+
+  function exportFavorites() {
+    if (favorites.length === 0) {
+      alert('No favorites to export!');
+      return;
+    }
+    
+    let exportText = 'My Favorite Greetings:\n\n';
+    favorites.forEach((fav, idx) => {
+      exportText += `${idx + 1}. ${fav.text} (${fav.lang})\n`;
+    });
+    exportText += `\nTotal: ${favorites.length} favorites\nGenerated from Cards Shower`;
+    
+    navigator.clipboard.writeText(exportText).then(() => {
+      const btn = exportButton;
+      const originalText = btn.textContent;
+      btn.textContent = '✓ Exported!';
+      setTimeout(() => {
+        btn.textContent = originalText;
+      }, 2000);
+    }).catch(err => console.error('Export failed:', err));
+  }
+
+  function renderAchievements() {
+    const achievementsList = document.querySelector('#achievementsList');
+    const achievementDefs = {
+      '10': { name: '10 Greetings', emoji: '📖', desc: 'Viewed 10 messages' },
+      '50': { name: '50 Greetings', emoji: '📚', desc: 'Viewed 50 messages' },
+      '100': { name: 'Century', emoji: '💯', desc: 'Viewed 100 messages' },
+      'collector': { name: 'Collector', emoji: '💎', desc: 'Favorited 5 messages' },
+      'polyglot': { name: 'Polyglot Master', emoji: '🌍', desc: 'Discovered all languages' }
+    };
+    
+    achievementsList.innerHTML = '<h3>🏆 Achievements</h3>';
+    
+    Object.keys(achievementDefs).forEach(key => {
+      const def = achievementDefs[key];
+      const unlocked = achievements.includes(key);
+      const badge = document.createElement('div');
+      badge.className = 'achievement-badge' + (unlocked ? '' : ' locked');
+      badge.title = def.desc;
+      badge.textContent = `${def.emoji} ${def.name}`;
+      achievementsList.appendChild(badge);
+    });
   }
 
   // Event listeners

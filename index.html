@@ -30,12 +30,14 @@
         <div class="counter">
           <span id="messageCount">0</span> / <span id="totalMessages">10</span>
           <span class="favorites-count">❤️ <span id="favoritesCount">0</span></span>
-        </div>
+          <span class="streak-display" id="streakDisplay">🔥 0</span>
+      </div>
       </div>
 
       <div class="button-group">
         <button id="changeButton" type="button" class="btn-primary">Next Message</button>
         <button id="randomButton" type="button" class="btn-secondary">Random</button>
+        <button id="quizButton" type="button" class="btn-tertiary" title="Quiz mode">❓ Quiz</button>
         <button id="speakButton" type="button" class="btn-tertiary" title="Pronounce message">🔊 Speak</button>
         <button id="copyButton" type="button" class="btn-tertiary" title="Copy message">📋 Copy</button>
         <button id="soundToggle" type="button" class="btn-tertiary" title="Toggle sound">🎵 Sound</button>
@@ -66,7 +68,21 @@
             </div>
           </div>
           <div id="favoritesList" class="favorites-list"></div>
-          <button id="resetStats" class="btn-reset">🔄 Reset All</button>
+          <div id="achievementsList" class="achievements-list"></div>
+          <div class="modal-actions">
+            <button id="exportButton" class="btn-export">📤 Export Favorites</button>
+            <button id="resetStats" class="btn-reset">🔄 Reset All</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="quizModal" class="modal">
+        <div class="modal-content quiz-content">
+          <button id="closeQuiz" class="btn-close">✕</button>
+          <h2>Guess the Language</h2>
+          <p id="quizMessage" class="quiz-message"></p>
+          <div id="quizOptions" class="quiz-options"></div>
+          <button id="quizHint" class="btn-tertiary">💡 Hint</button>
         </div>
       </div>
 
