@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const quizModal = document.querySelector('#quizModal');
   const closeQuizBtn = document.querySelector('#closeQuiz');
   const quizHintBtn = document.querySelector('#quizHint');
+  const loadingSpinner = document.querySelector('#loadingSpinner');
   const card = document.querySelector('.card');
   const messageSpan = card?.querySelector('.message');
   const messageCountSpan = document.querySelector('#messageCount');
@@ -283,6 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     isShuffle = true;
     shuffleButton.disabled = true;
     shuffleButton.textContent = '⏳ Shuffling...';
+    loadingSpinner.removeAttribute('hidden');
     
     let count = 0;
     const interval = setInterval(() => {
@@ -291,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isShuffle = false;
         shuffleButton.disabled = false;
         shuffleButton.textContent = '🎲 Shuffle';
+        loadingSpinner.setAttribute('hidden', '');
         setRandomMessage();
         return;
       }
@@ -395,6 +398,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function showQuiz() {
     if (currentIndex < 0) return;
     
+    loadingSpinner.removeAttribute('hidden');
+    
     const correctLang = messages[currentIndex].lang;
     const options = [];
     options.push(correctLang);
@@ -424,6 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
       quizOptions.appendChild(btn);
     });
     
+    loadingSpinner.setAttribute('hidden', '');
     quizModal.classList.add('active');
   }
 
