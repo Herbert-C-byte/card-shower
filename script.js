@@ -69,6 +69,26 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
+  // Safe localStorage wrapper
+  const Storage = {
+    get: (key, defaultValue) => {
+      try {
+        const item = localStorage.getItem(key);
+        return item ? JSON.parse(item) : defaultValue;
+      } catch (e) {
+        console.warn(`Failed to read from localStorage: ${key}`, e);
+        return defaultValue;
+      }
+    },
+    set: (key, value) => {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+      } catch (e) {
+        console.warn(`Failed to write to localStorage: ${key}`, e);
+      }
+    }
+  };
+
   // Initialize
   totalMessagesSpan.textContent = messages.length;
 
@@ -77,8 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let isQuizMode = false;
   let messageCount = 0;
   let soundEnabled = true;
-  let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-  let achievements = JSON.parse(localStorage.getItem('achievements') || '[]');
+  let favorites = Storage.get('favorites', []);
+  let achievements = Storage.get('achievements', []);
   const languagesSeen = new Set();
   let currentStreak = 0;
   let quizCorrect = 0;
@@ -121,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (newAchievements.length > 0) {
       achievements.push(...newAchievements);
-      localStorage.setItem('achievements', JSON.stringify(achievements));
+      Storage.set('achievements', achievements);
     }
   }
 
@@ -157,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
       favoriteButton.classList.add('favorited');
     }
     
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    Storage.set('favorites', favorites);
     updateFavoritesCount();
   }
 
@@ -382,8 +402,8 @@ document.addEventListener('DOMContentLoaded', () => {
       updateFavoritesCount();
       updateProgressBar();
       progressFill.style.width = '0%';
-      localStorage.setItem('favorites', JSON.stringify(favorites));
-      localStorage.setItem('achievements', JSON.stringify(achievements));
+      Storage.set('favorites', favorites);
+      Storage.set('achievements', achievements);
       hideStats();
       console.log('All stats reset!');
     }
