@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentIndex = Math.floor(Math.random() * messages.length);
     setMessage(currentIndex);
   }
-
+// yoyooy
   function copyToClipboard() {
     if (currentIndex >= 0) {
       const text = messages[currentIndex].text;
