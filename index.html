@@ -37,9 +37,8 @@
       </div>
       </div>
 
-      <div class="button-group">
-        <button id="changeButton" type="button" class="btn-primary">Next Message</button>
-        <button id="randomButton" type="button" class="btn-secondary">Random</button>
+        <button id="changeButton" type="button" class="btn-primary" title="Next Message">Next Message</button>
+        <button id="randomButton" type="button" class="btn-secondary" title="Show Random Message">Random</button>
         <button id="quizButton" type="button" class="btn-tertiary" title="Quiz mode">❓ Quiz</button>
         <button id="speakButton" type="button" class="btn-tertiary" title="Pronounce message">🔊 Speak</button>
         <button id="copyButton" type="button" class="btn-tertiary" title="Copy message">📋 Copy</button>
@@ -50,7 +49,7 @@
 
       <div id="statsModal" class="modal">
         <div class="modal-content">
-          <button id="closeStats" class="btn-close">✕</button>
+          <button id="closeStats" class="btn-close" title="Close Statistics">✕</button>
           <h2>Statistics</h2>
           <div class="stats-grid">
             <div class="stat-item">
@@ -73,19 +72,19 @@
           <div id="favoritesList" class="favorites-list"></div>
           <div id="achievementsList" class="achievements-list"></div>
           <div class="modal-actions">
-            <button id="exportButton" class="btn-export">📤 Export Favorites</button>
-            <button id="resetStats" class="btn-reset">🔄 Reset All</button>
+            <button id="exportButton" class="btn-export" title="Export Favorites to File">📤 Export Favorites</button>
+            <button id="resetStats" class="btn-reset" title="Reset All Statistics and Favorites">🔄 Reset All</button>
           </div>
         </div>
       </div>
 
       <div id="quizModal" class="modal">
         <div class="modal-content quiz-content">
-          <button id="closeQuiz" class="btn-close">✕</button>
+          <button id="closeQuiz" class="btn-close" title="Close Quiz">✕</button>
           <h2>Guess the Language</h2>
           <p id="quizMessage" class="quiz-message"></p>
           <div id="quizOptions" class="quiz-options"></div>
-          <button id="quizHint" class="btn-tertiary">💡 Hint</button>
+          <button id="quizHint" class="btn-tertiary" title="Show Hint for Current Question">💡 Hint</button>
         </div>
       </div>
 
