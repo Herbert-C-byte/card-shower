@@ -1,6 +1,6 @@
 # Cards Shower 🌍
 
-A beautiful, interactive multilingual greeting card application that showcases "Hello World" in 35 different languages from around the globe. Perfect for language learners, educators, and anyone curious about how different cultures say "hello"!
+A beautiful, interactive multilingual greeting card application that showcases "Hello World" in 45 different languages from around the globe. Perfect for language learners, educators, and anyone curious about how different cultures say "hello"!
 
 ## ✨ What Makes Cards Shower Special
 
@@ -18,7 +18,7 @@ Whether you're a student preparing for international travel, a teacher looking f
 
 ### 🌐 Multilingual Greeting Cards
 
-- **35 Authentic Languages**: From Portuguese "Olá Mundo" to Japanese "こんにちは世界"
+- **45 Authentic Languages**: From Portuguese "Olá Mundo" to Georgian "გამარჯობა მსოფლიო"
 - **Cultural Accuracy**: Each greeting is the most common way to say "hello world" in that language
 - **Regional Variations**: Includes both European and Asian character sets
 - **Progressive Loading**: Smooth transitions between messages with loading indicators
@@ -103,7 +103,7 @@ Gamification elements to keep you motivated!
 - 📚 **50 Greetings** - Explore 50 different greetings
 - 💯 **Century** - Reach 100 total views
 - 💎 **Collector** - Save 5 messages to favorites
-- 🌍 **Polyglot Master** - Discover all 35 languages
+- 🌍 **Polyglot Master** - Discover all 45 languages
 
 **Achievement Features**:
 
@@ -264,8 +264,16 @@ Here's the complete list of 35 languages with their greetings and regions:
 | 33  | Hungarian          | Helló Világ      | Hungary                  | Latin              |
 | 34  | Romanian           | Salut Lume       | Romania                  | Latin              |
 | 35  | Bulgarian          | Здравей Свят     | Bulgaria                 | Cyrillic           |
-
-## 🛠 Technical Implementation
+| 36  | Persian (Farsi)    | سلام دنیا        | Iran                     | Persian            |
+| 37  | Ukrainian          | Привіт Світ      | Ukraine                  | Cyrillic           |
+| 38  | Serbian            | Zdravo svete     | Serbia                   | Latin              |
+| 39  | Slovak             | Ahoj svet        | Slovakia                 | Latin              |
+| 40  | Croatian           | Pozdrav svijete  | Croatia                  | Latin              |
+| 41  | Slovenian          | Pozdravljen svet | Slovenia                 | Latin              |
+| 42  | Estonian           | Tere maailm      | Estonia                  | Latin              |
+| 43  | Latvian            | Sveika pasaule   | Latvia                   | Latin              |
+| 44  | Lithuanian         | Labas pasauli    | Lithuania                | Latin              |
+| 45  | Georgian           | გამარჯობა მსოფლიო | Georgia                  | Georgian           |
 
 ### Architecture
 
@@ -293,7 +301,7 @@ Here's the complete list of 35 languages with their greetings and regions:
 - **Animation FPS**: 60fps smooth transitions
 - **Memory Usage**: < 5MB total footprint
 - **Storage**: ~2KB for user data
-- **Bundle Size**: 15KB total (HTML + CSS + JS)
+- **Bundle Size**: 17KB total (HTML + CSS + JS)
 
 ## 🌐 Browser Compatibility
 

@@ -34,7 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
     { text: 'Halló heimur!', lang: 'Icelandic' },
     { text: 'Helló világ!', lang: 'Hungarian' },
     { text: 'Salut lume!', lang: 'Romanian' },
-    { text: 'Привет世界!', lang: 'Bulgarian' }
+    { text: 'Привет свят!', lang: 'Bulgarian' },
+    { text: 'سلام دنیا!', lang: 'Persian (Farsi)' },
+    { text: 'Привіт Світ!', lang: 'Ukrainian' },
+    { text: 'Zdravo svete!', lang: 'Serbian' },
+    { text: 'Ahoj svet!', lang: 'Slovak' },
+    { text: 'Pozdrav svijete!', lang: 'Croatian' },
+    { text: 'Pozdravljen svet!', lang: 'Slovenian' },
+    { text: 'Tere maailm!', lang: 'Estonian' },
+    { text: 'Sveika pasaule!', lang: 'Latvian' },
+    { text: 'Labas pasauli!', lang: 'Lithuanian' },
+    { text: 'გამარჯობა მსოფლიო!', lang: 'Georgian' }
   ];
 
   // DOM Elements
