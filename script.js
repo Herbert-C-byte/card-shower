@@ -44,7 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
     { text: 'Tere maailm!', lang: 'Estonian' },
     { text: 'Sveika pasaule!', lang: 'Latvian' },
     { text: 'Labas pasauli!', lang: 'Lithuanian' },
-    { text: 'გამარჯობა მსოფლიო!', lang: 'Georgian' }
+    { text: 'გამარჯობა მსოფლიო!', lang: 'Georgian' },
+    { text: 'Hallo Wêreld!', lang: 'Afrikaans' },
+    { text: 'Hola Món!', lang: 'Catalan' },
+    { text: 'Kaixo Mundua!', lang: 'Basque' },
+    { text: 'Përshëndetje Botë!', lang: 'Albanian' },
+    { text: 'Bongu Dinja!', lang: 'Maltese' }
   ];
 
   // DOM Elements

@@ -1,12 +1,12 @@
 # Cards Shower 🌍
 
-A beautiful, interactive multilingual greeting card application that showcases "Hello World" in 45 different languages from around the globe. Perfect for language learners, educators, and anyone curious about how different cultures say "hello"!
+A beautiful, interactive multilingual greeting card application that showcases "Hello World" in 50 different languages from around the globe. Perfect for language learners, educators, and anyone curious about how different cultures say "hello"!
 
 ## ✨ What Makes Cards Shower Special
 
 Cards Shower transforms language learning into an engaging, gamified experience. Unlike traditional flashcard apps, it combines:
 
-- **Cultural Immersion**: Authentic greetings from 35 countries and regions
+- **Cultural Immersion**: Authentic greetings from 50 countries and regions
 - **Interactive Learning**: Quiz mode, achievements, and progress tracking
 - **Accessibility**: Text-to-speech, keyboard shortcuts, and mobile-friendly design
 - **Personalization**: Favorites system and statistics to track your learning journey
@@ -18,7 +18,7 @@ Whether you're a student preparing for international travel, a teacher looking f
 
 ### 🌐 Multilingual Greeting Cards
 
-- **45 Authentic Languages**: From Portuguese "Olá Mundo" to Georgian "გამარჯობა მსოფლიო"
+- **50 Authentic Languages**: From Portuguese "Olá Mundo" to Maltese "Bongu Dinja"
 - **Cultural Accuracy**: Each greeting is the most common way to say "hello world" in that language
 - **Regional Variations**: Includes both European and Asian character sets
 - **Progressive Loading**: Smooth transitions between messages with loading indicators
@@ -103,7 +103,7 @@ Gamification elements to keep you motivated!
 - 📚 **50 Greetings** - Explore 50 different greetings
 - 💯 **Century** - Reach 100 total views
 - 💎 **Collector** - Save 5 messages to favorites
-- 🌍 **Polyglot Master** - Discover all 45 languages
+- 🌍 **Polyglot Master** - Discover all 50 languages
 
 **Achievement Features**:
 
@@ -227,53 +227,58 @@ Modern, responsive interface that works everywhere.
 
 Here's the complete list of 35 languages with their greetings and regions:
 
-| #   | Language           | Greeting         | Region                   | Script             |
-| --- | ------------------ | ---------------- | ------------------------ | ------------------ |
-| 1   | Portuguese         | Olá Mundo        | Portugal/Brazil          | Latin              |
-| 2   | English            | Hello World      | Global                   | Latin              |
-| 3   | French             | Bonjour le Monde | France                   | Latin              |
-| 4   | Spanish            | Hola Mundo       | Spain/Latin America      | Latin              |
-| 5   | Italian            | Ciao Mondo       | Italy                    | Latin              |
-| 6   | German             | Hallo Welt       | Germany                  | Latin              |
-| 7   | Japanese           | こんにちは世界   | Japan                    | Kanji/Hiragana     |
-| 8   | Korean             | 안녕하세요 세계  | South Korea              | Hangul             |
-| 9   | Russian            | Привет Мир       | Russia                   | Cyrillic           |
-| 10  | Arabic             | مرحبا بالعالم    | Middle East/North Africa | Arabic             |
-| 11  | Chinese (Mandarin) | 你好世界         | China                    | Hanzi              |
-| 12  | Thai               | สวัสดีโลก        | Thailand                 | Thai               |
-| 13  | Vietnamese         | Chào Thế Giới    | Vietnam                  | Latin (Vietnamese) |
-| 14  | Indonesian         | Halo Dunia       | Indonesia                | Latin              |
-| 15  | Turkish            | Merhaba Dünya    | Turkey                   | Latin              |
-| 16  | Greek              | Γεια σου Κόσμε   | Greece                   | Greek              |
-| 17  | Polish             | Witaj Świecie    | Poland                   | Latin              |
-| 18  | Czech              | Ahoj Světe       | Czech Republic           | Latin              |
-| 19  | Swedish            | Hej Världen      | Sweden                   | Latin              |
-| 20  | Dutch              | Hallo Wereld     | Netherlands              | Latin              |
-| 21  | Finnish            | Hei Maailma      | Finland                  | Latin              |
-| 22  | Norwegian          | Hei Verden       | Norway                   | Latin              |
-| 23  | Danish             | Hej Verden       | Denmark                  | Latin              |
-| 24  | Hebrew             | שלום עולם        | Israel                   | Hebrew             |
-| 25  | Hindi              | नमस्ते दुनिया    | India                    | Devanagari         |
-| 26  | Bengali            | হ্যালো বিশ্ব     | Bangladesh               | Bengali            |
-| 27  | Urdu               | ہیلو دنیا        | Pakistan                 | Urdu               |
-| 28  | Filipino           | Kamusta Mundo    | Philippines              | Latin              |
-| 29  | Malay              | Hai Dunia        | Malaysia                 | Latin              |
-| 30  | Tagalog            | Kamusta Mundo    | Philippines              | Latin              |
-| 31  | Swahili            | Habari Dunia     | East Africa              | Latin              |
-| 32  | Icelandic          | Halló Heimur     | Iceland                  | Latin              |
-| 33  | Hungarian          | Helló Világ      | Hungary                  | Latin              |
-| 34  | Romanian           | Salut Lume       | Romania                  | Latin              |
-| 35  | Bulgarian          | Здравей Свят     | Bulgaria                 | Cyrillic           |
-| 36  | Persian (Farsi)    | سلام دنیا        | Iran                     | Persian            |
-| 37  | Ukrainian          | Привіт Світ      | Ukraine                  | Cyrillic           |
-| 38  | Serbian            | Zdravo svete     | Serbia                   | Latin              |
-| 39  | Slovak             | Ahoj svet        | Slovakia                 | Latin              |
-| 40  | Croatian           | Pozdrav svijete  | Croatia                  | Latin              |
-| 41  | Slovenian          | Pozdravljen svet | Slovenia                 | Latin              |
-| 42  | Estonian           | Tere maailm      | Estonia                  | Latin              |
-| 43  | Latvian            | Sveika pasaule   | Latvia                   | Latin              |
-| 44  | Lithuanian         | Labas pasauli    | Lithuania                | Latin              |
+| #   | Language           | Greeting          | Region                   | Script             |
+| --- | ------------------ | ----------------- | ------------------------ | ------------------ |
+| 1   | Portuguese         | Olá Mundo         | Portugal/Brazil          | Latin              |
+| 2   | English            | Hello World       | Global                   | Latin              |
+| 3   | French             | Bonjour le Monde  | France                   | Latin              |
+| 4   | Spanish            | Hola Mundo        | Spain/Latin America      | Latin              |
+| 5   | Italian            | Ciao Mondo        | Italy                    | Latin              |
+| 6   | German             | Hallo Welt        | Germany                  | Latin              |
+| 7   | Japanese           | こんにちは世界    | Japan                    | Kanji/Hiragana     |
+| 8   | Korean             | 안녕하세요 세계   | South Korea              | Hangul             |
+| 9   | Russian            | Привет Мир        | Russia                   | Cyrillic           |
+| 10  | Arabic             | مرحبا بالعالم     | Middle East/North Africa | Arabic             |
+| 11  | Chinese (Mandarin) | 你好世界          | China                    | Hanzi              |
+| 12  | Thai               | สวัสดีโลก         | Thailand                 | Thai               |
+| 13  | Vietnamese         | Chào Thế Giới     | Vietnam                  | Latin (Vietnamese) |
+| 14  | Indonesian         | Halo Dunia        | Indonesia                | Latin              |
+| 15  | Turkish            | Merhaba Dünya     | Turkey                   | Latin              |
+| 16  | Greek              | Γεια σου Κόσμε    | Greece                   | Greek              |
+| 17  | Polish             | Witaj Świecie     | Poland                   | Latin              |
+| 18  | Czech              | Ahoj Světe        | Czech Republic           | Latin              |
+| 19  | Swedish            | Hej Världen       | Sweden                   | Latin              |
+| 20  | Dutch              | Hallo Wereld      | Netherlands              | Latin              |
+| 21  | Finnish            | Hei Maailma       | Finland                  | Latin              |
+| 22  | Norwegian          | Hei Verden        | Norway                   | Latin              |
+| 23  | Danish             | Hej Verden        | Denmark                  | Latin              |
+| 24  | Hebrew             | שלום עולם         | Israel                   | Hebrew             |
+| 25  | Hindi              | नमस्ते दुनिया     | India                    | Devanagari         |
+| 26  | Bengali            | হ্যালো বিশ্ব      | Bangladesh               | Bengali            |
+| 27  | Urdu               | ہیلو دنیا         | Pakistan                 | Urdu               |
+| 28  | Filipino           | Kamusta Mundo     | Philippines              | Latin              |
+| 29  | Malay              | Hai Dunia         | Malaysia                 | Latin              |
+| 30  | Tagalog            | Kamusta Mundo     | Philippines              | Latin              |
+| 31  | Swahili            | Habari Dunia      | East Africa              | Latin              |
+| 32  | Icelandic          | Halló Heimur      | Iceland                  | Latin              |
+| 33  | Hungarian          | Helló Világ       | Hungary                  | Latin              |
+| 34  | Romanian           | Salut Lume        | Romania                  | Latin              |
+| 35  | Bulgarian          | Здравей Свят      | Bulgaria                 | Cyrillic           |
+| 36  | Persian (Farsi)    | سلام دنیا         | Iran                     | Persian            |
+| 37  | Ukrainian          | Привіт Світ       | Ukraine                  | Cyrillic           |
+| 38  | Serbian            | Zdravo svete      | Serbia                   | Latin              |
+| 39  | Slovak             | Ahoj svet         | Slovakia                 | Latin              |
+| 40  | Croatian           | Pozdrav svijete   | Croatia                  | Latin              |
+| 41  | Slovenian          | Pozdravljen svet  | Slovenia                 | Latin              |
+| 42  | Estonian           | Tere maailm       | Estonia                  | Latin              |
+| 43  | Latvian            | Sveika pasaule    | Latvia                   | Latin              |
+| 44  | Lithuanian         | Labas pasauli     | Lithuania                | Latin              |
 | 45  | Georgian           | გამარჯობა მსოფლიო | Georgia                  | Georgian           |
+| 46  | Afrikaans          | Hallo Wêreld     | South Africa             | Latin              |
+| 47  | Catalan            | Hola Món         | Spain (Catalonia)        | Latin              |
+| 48  | Basque             | Kaixo Mundua     | Spain (Basque Country)   | Latin              |
+| 49  | Albanian           | Përshëndetje Botë | Albania                  | Latin              |
+| 50  | Maltese            | Bongu Dinja      | Malta                    | Latin              |
 
 ### Architecture
 
