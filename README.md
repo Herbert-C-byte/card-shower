@@ -274,11 +274,11 @@ Here's the complete list of 35 languages with their greetings and regions:
 | 43  | Latvian            | Sveika pasaule    | Latvia                   | Latin              |
 | 44  | Lithuanian         | Labas pasauli     | Lithuania                | Latin              |
 | 45  | Georgian           | გამარჯობა მსოფლიო | Georgia                  | Georgian           |
-| 46  | Afrikaans          | Hallo Wêreld     | South Africa             | Latin              |
-| 47  | Catalan            | Hola Món         | Spain (Catalonia)        | Latin              |
-| 48  | Basque             | Kaixo Mundua     | Spain (Basque Country)   | Latin              |
+| 46  | Afrikaans          | Hallo Wêreld      | South Africa             | Latin              |
+| 47  | Catalan            | Hola Món          | Spain (Catalonia)        | Latin              |
+| 48  | Basque             | Kaixo Mundua      | Spain (Basque Country)   | Latin              |
 | 49  | Albanian           | Përshëndetje Botë | Albania                  | Latin              |
-| 50  | Maltese            | Bongu Dinja      | Malta                    | Latin              |
+| 50  | Maltese            | Bongu Dinja       | Malta                    | Latin              |
 
 ### Architecture
 
