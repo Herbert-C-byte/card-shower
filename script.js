@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const messages = [
+  const messages = [ // Need to apply more languages here
     { text: 'Olá mundo!', lang: 'Portuguese' },
     { text: 'Hello World!', lang: 'English' },
     { text: 'Bonjour le monde!', lang: 'French' },
@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressFill = document.querySelector('#progressFill');
   const statsModal = document.querySelector('#statsModal');
 
+  // Check if essential elements are present
   if (!changeButton || !randomButton || !card || !messageSpan) {
     console.error('Required elements not found; aborting script.');
     return;
