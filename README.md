@@ -167,28 +167,53 @@ Modern, responsive interface that works everywhere.
 
 ## 🚀 Quick Start
 
-### Installation
+### Installation & Setup
 
-1. **Download**: Clone or download this repository
+**Option 1: Direct Browser Opening**
 
-   ```bash
-   git clone https://github.com/yourusername/cards-shower.git
-   cd cards-shower
-   ```
+1. Download or clone the repository
+2. Open `index.html` directly in your browser
+3. No build process, no dependencies needed!
 
-2. **Open**: Simply open `index.html` in any modern web browser
-   - No server required
-   - No dependencies to install
-   - Works offline after first load
+**Option 2: Live Server (Recommended for Development)**
 
-3. **Start Learning**: Click "Next Message" to begin your language journey!
+1. Open the folder in VS Code
+2. Install the "Live Server" extension
+3. Right-click `index.html` → "Open with Live Server"
+4. Auto-reload on file changes for a smooth dev experience
+
+**Option 3: Python Simple Server**
+
+```bash
+# Python 3.x
+python -m http.server 8000
+
+# Then open http://localhost:8000 in your browser
+```
 
 ### System Requirements
 
-- **Browser**: Any modern browser (Chrome, Firefox, Safari, Edge)
+- **Browser**: Chrome, Firefox, Safari, Edge (all modern versions)
 - **Storage**: ~2KB for favorites and statistics (uses localStorage)
 - **Audio**: Speakers/headphones for text-to-speech and sound effects
-- **Permissions**: Microphone access not required
+- **Network**: Works offline after first page load
+- **Permissions**: No special permissions required (speech synthesis is built-in)
+
+### Project Structure
+
+```
+cards-shower/
+├── index.html          # Main HTML structure & layout
+├── styles.css          # All styling & responsive design
+├── script.js           # Interactive features & game logic
+└── README.md           # This file
+```
+
+**File Breakdown**:
+
+- **index.html** (~90 lines): Semantic HTML, modals, button groups, accessibility attributes
+- **styles.css** (~800 lines): Responsive design with 5+ breakpoints, animations, dark mode support
+- **script.js** (~600 lines): Message data, quiz logic, localStorage, keyboard shortcuts, sound synthesis
 
 ## 📋 Detailed Usage Guide
 
@@ -298,7 +323,107 @@ Here's the complete list of 35 languages with their greetings and regions:
   - **Web Audio API**: Sound effect generation
   - **Clipboard API**: Copy functionality
   - **localStorage**: Data persistence
-  - **matchMedia**: Dark mode detection
+
+## 🎨 Recent UI Improvements (v2.0)
+
+### Responsive Design Enhancements
+
+The application now features best-in-class responsive design:
+
+**Mobile-First Layout**:
+
+- Flexible card heights that adapt to content
+- Button grid on phones (2-3 columns) → row flex on tablets/desktop
+- Optimized font scaling using `clamp()` for fluid typography
+- Touch-friendly hit targets (48px minimum height)
+
+**Breakpoints**:
+
+- **360px and below**: Single-column controls
+- **560px**: 2-column button grid
+- **640px**: Tablet layout adjustments
+- **768px**: Intermediate breakpoint for consistent spacing
+- **900px**: Desktop layout with 800px max-width container
+- **1200px+**: Expanded container up to 80vw for widescreen displays
+
+**Animations & Interaction**:
+
+- Smoother message transitions (cubic-bezier easing)
+- Refined focus rings for keyboard navigation
+- Backdrop blur on modals for visual hierarchy
+- Scale + slide-in effects for card messages
+- Improved button hover states with shadows
+
+**Dark Mode**:
+
+- Automatic detection of system preference
+- Smooth color transitions
+- High contrast text for accessibility
+- Professional gradient backgrounds
+
+## 🚀 Roadmap & Future Features
+
+### High Priority (Next Release)
+
+- [ ] **Phonetic Pronunciations** - Add romanized text and IPA guides for harder languages
+- [ ] **Language Search/Filter** - Jump directly to specific languages instead of randomizing
+- [ ] **Country Flags** - Visual cues next to language names for geographic context
+- [ ] **Persistent Sound Setting** - Save audio preference to localStorage
+
+### Medium Priority
+
+- [ ] **PWA Support** - Service worker + manifest for offline support and home screen install
+- [ ] **Daily Challenge Mode** - Reset streak daily, reward consistent practice
+- [ ] **Gallery View** - See all 50 greetings in a grid layout
+- [ ] **Difficulty Levels** - Group languages by complexity for progressive learning
+- [ ] **Social Sharing** - Share quiz scores and achievements
+
+### Polish & Optimization
+
+- [ ] **Keyboard Navigation** - Arrow keys to browse, Tab through modals
+- [ ] **More Statistics** - Most-viewed languages, learning streaks, time spent
+- [ ] **Attribution Page** - Credits for language data sources
+- [ ] **Performance Metrics** - Lazy loading, image optimization
+- [ ] **Accessibility Audit** - WCAG 2.1 AA compliance verification
+
+## 🤝 Contributing
+
+Have an idea to improve Cards Shower? I'd love to hear it!
+
+**Ways to Contribute**:
+
+- Report bugs or suggest features via GitHub Issues
+- Add more languages or correct existing greetings
+- Improve accessibility or responsive design
+- Submit optimizations or code refactors
+- Translate the interface into other languages
+
+**Development Process**:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Make your changes and test thoroughly
+4. Commit with clear messages
+5. Push to your fork and submit a Pull Request
+
+## 📄 License
+
+This project is open source and available under the MIT License. See LICENSE file for details.
+
+## 👋 Support & Feedback
+
+- **Questions?** Open an issue on GitHub
+- **Found a bug?** Report it with reproduction steps
+- **Have feedback?** Share your thoughts and suggestions
+- **Want to collaborate?** Reach out!
+
+---
+
+**Made with ❤️ for language learners everywhere**
+
+Happy learning! 🌍✨
+
+- **matchMedia**: Dark mode detection
 
 ### Performance Metrics
 
