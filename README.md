@@ -622,4 +622,7 @@ Cards Shower is more than an app—it's your passport to world cultures. Whether
 
 ---
 
-_Last updated: February 2026_
+## Made by Herbert
+
+---
+_Last updated: April 2026_
