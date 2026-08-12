@@ -34,10 +34,16 @@
           <span id="messageCount">0</span> / <span id="totalMessages">50</span>
           <span class="favorites-count">❤️ <span id="favoritesCount">0</span></span>
           <span class="streak-display" id="streakDisplay">🔥 0</span>
-      </div>
+        </div>
       </div>
 
-        <div class="button-group" role="toolbar" aria-label="Controls">
+      <div class="search-group">
+        <label for="searchInput" class="visually-hidden">Search language</label>
+        <input id="searchInput" type="search" placeholder="Search language..." aria-label="Search language">
+        <button id="searchButton" type="button" class="btn-secondary">Search</button>
+      </div>
+
+      <div class="button-group" role="toolbar" aria-label="Controls">
           <button id="changeButton" type="button" class="btn-primary" title="Next Message">Next Message</button>
           <button id="randomButton" type="button" class="btn-secondary" title="Show Random Message">Random</button>
           <button id="quizButton" type="button" class="btn-tertiary" title="Quiz mode">❓ Quiz</button>

@@ -83,7 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const statsModal = document.querySelector("#statsModal");
 
   // Check if essential elements are present
-  if (!changeButton || !randomButton || !card || !messageSpan) {
+  if (
+    !changeButton ||
+    !randomButton ||
+    !card ||
+    !messageSpan ||
+    !searchInput ||
+    !searchButton
+  ) {
     console.error("Required elements not found; aborting script.");
     return;
   }
